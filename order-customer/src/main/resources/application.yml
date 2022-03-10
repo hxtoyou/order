@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: order-customer
+server:
+  port: 2005
+eureka:
+  client:
+    # false表示不向注册中心注册自己
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:1110/eureka/
+feign:
+  circuitbreaker:
+    enabled:true
