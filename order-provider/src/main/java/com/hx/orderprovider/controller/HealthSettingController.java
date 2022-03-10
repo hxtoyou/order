@@ -10,11 +10,11 @@ public class HealthSettingController {
 
 
 
-    @RequestMapping("/health/{status}")
-    public String up(@PathVariable("status") Boolean status) {
+    @RequestMapping("health")
+    public String up() {
 
 
-        return "helllllll";
+        return "32323232";
     }
 
 }
