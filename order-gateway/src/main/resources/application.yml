@@ -1,21 +1,36 @@
 spring:
   application:
     name: order-gateway
-  gateway:
-    routes:
-      - id:  apiuser
-        uri: lb://order-customer
-        predicates:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: after_route
+          uri: http://localhost:2001
+          predicates:
           - Path=/user/**
+#        - id: qq_route
+#          uri: https://www.baidu.com
+#          predicates:
+#          - Path=/red/**
+#          fitters:
+#          - RewritePath=/red/?(?<segment>.*), /$\{segment}
 server:
   port: 1111
 eureka:
   client:
     # false表示不向注册中心注册自己
-#    register-with-eureka: false
+    register-with-eureka: false
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:1110/eureka/
+feign:
+  hystrix:
+    enabled: false
+
 #feign:
 #  circuitbreaker:
 #    enabled:true
