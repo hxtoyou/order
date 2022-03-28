@@ -9,9 +9,11 @@ spring:
           lowerCaseServiceId: true
       routes:
         - id: after_route
-          uri: http://localhost:2001
+          uri: lb://eureka-client-service-provider
           predicates:
           - Path=/user/**
+          filters:
+            - StripPrefix=1
 #        - id: qq_route
 #          uri: https://www.baidu.com
 #          predicates:
