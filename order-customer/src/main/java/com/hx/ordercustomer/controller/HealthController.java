@@ -26,7 +26,7 @@ private KafkaTemplate kafkaTemplate;
         return rs;
     }
 
-    @KafkaListener(topics = {"test"})
+    @KafkaListener(topics = {"test2"})
     public void handleMessage(ConsumerRecord record) {
         System.out.println(record.value());
     }
