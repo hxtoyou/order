@@ -1,5 +1,6 @@
 package com.hx.orderprovider.controller;
 
+import com.example.ordercommon.entity.OrderConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +17,8 @@ public class HealthSettingController {
     @RequestMapping("health")
     public String up() {
 
-
-        return "32323232";
+        String var = OrderConstants.TOPIC_TEST;
+        return "32323232"+var;
     }
 
 }
