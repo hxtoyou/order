@@ -7,4 +7,7 @@ node{
     stage('编译安装子工程') {
         sh "mvn -f order-common clean install"
     }
+    stage('编译打包微服务工程') {
+        sh "mvn -f ${project_name} clean package"
+    }
 }
