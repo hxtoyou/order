@@ -16,7 +16,7 @@ node{
         def imageName = "${project_name}:${tag}"
         sh "docker tag ${imageName} ${harbor_url}/${harbor_project}/${imageName}"
         //推送镜像到harbor
-        withCredentials([usernamePassword(credentialsId: '${harbor_auth}', passwordVariable: 'password', usernameVariable: 'username')]) {
+        withCredentials([usernamePassword(credentialsId: "${harbor_auth}", passwordVariable: 'password', usernameVariable: 'username')]) {
             // some block
             sh "docker login -u ${username} -p ${password} ${harbor_url}"
             sh "docker push ${harbor_url}/${harbor_project}/${imageName}"
