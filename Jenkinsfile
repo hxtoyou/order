@@ -5,9 +5,9 @@ node{
         checkout([$class: 'GitSCM', branches: [[name: "*/${branch}"]], extensions: [], userRemoteConfigs: [[credentialsId: "${git_auth}", url: "${git_url}"]]])
     }
     stage('编译安装子工程') {
-        sh "mvn -f order-common clean install"
+        sh "mvn -f order-common clean install -Dmaven.test.skip=true"
     }
     stage('编译打包微服务工程') {
-        sh "mvn -f ${project_name} clean package"
+        sh "mvn -f ${project_name} clean package -Dmaven.test.skip=true"
     }
 }
