@@ -11,7 +11,7 @@ node{
     stage('编译安装子工程') {
         sh "mvn -f order-common clean install -Dmaven.test.skip=true"
     }
-    stage('编译打包微服务工程') {
+    stage('编译打包微服务工程与提交镜像') {
         sh "mvn -f ${project_name} clean package -Dmaven.test.skip=true dockerfile:build"
         def imageName = "${project_name}:${tag}"
         sh "docker tag ${imageName} ${harbor_url}/${harbor_project}/${imageName}"

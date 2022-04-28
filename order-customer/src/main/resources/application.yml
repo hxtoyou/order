@@ -2,7 +2,7 @@ spring:
   application:
     name: order-customer
   kafka:
-    broker-list: 192.168.1.8:9092
+    broker-list: 192.168.1.5:9092,192.168.1.5:9091,192.168.1.5:9090
     topic:
       Name: test
       numPartitions: 1
@@ -20,11 +20,11 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       #实现Serializer接口的序列化类值
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      bootstrap-servers: 192.168.1.8:9092
-    bootstrap-servers: 192.168.1.8:9092
+      bootstrap-servers: 192.168.1.5:9092,192.168.1.5:9091,192.168.1.5:9090
+    bootstrap-servers: 192.168.1.5:9092,192.168.1.5:9091,192.168.1.5:9090
     consumer:
       #消费的主题
-      topic: test-topic
+      topic: qy
       #消费者组id
       group-id: test-group
       #是否自动提交偏移量
